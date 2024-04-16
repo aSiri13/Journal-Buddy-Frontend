@@ -1,140 +1,251 @@
+/* Reset some default styling */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Merriweather', serif;
+    font-family: 'Merriweather', serif; /* Classic font for the body text */
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', cursive; 
+}
+
+/* Style the body */
 body {
-    background: #FFF5EA;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    background: #EED8C0; /* Warm beige background */
+    color: #333; /* Dark gray for text */
+    line-height: 1.6; /* Improved readability */
 }
 
-.login-container {
-    display: flex;
-    width: 100%; /* Use the full viewport width */
-    max-width: 900px; /* Or the max width you prefer */
-    height: 300px; /* Or the height you prefer */
-    margin: auto; /* Center the container */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    align-items: center; /* Center children vertically */
-    justify-content: center; /* Center children horizontally */
-}
-
-
-
-.login-image-container {
-    flex: 0 0 50%; /* Do not grow or shrink, start with 50% of the flex container */
-    display: flex;
-    align-items: center; /* Align image vertically */
-    justify-content: center; /* Align image horizontally */
-    padding: 20px; /* Provide some padding */
-}
-
-.login-form-container {
-    flex: 1; /* Take up the other half */
-    background: rgb(255, 255, 255);
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Center the form vertically as well */
-}
-
-.login-form-container h1 {
-    margin-bottom: 30px; /* Increased bottom margin for the header */
-    font-family: 'Merriweather', cursive;
+/* Style the header */
+header {
+    background-color: #D3C1AC; /* Slightly darker beige for the header */
     color: #333;
+    padding: 10px 20px;
+    text-align: center; /* Centered header text */
 }
 
-.login-form-container form {
-    width: 100%;
-    max-width: 400px; /* Maximum width of the form */
+/* Style the navigation */
+nav {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-between; /* Align items to the sides */
+    padding: 10px 0;
 }
 
-input[type="text"],
-input[type="password"] {
-    width: calc(100% - 30px); /* Full width minus padding */
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 20px;
-    border: 1px solid #ccc; /* Adding a border to match the design */
-    background-color: #f5f3f0;
+#homeButton {
+  background: #A68B60; /* Warm beige for buttons */
+  border: none; /* Remove border for a flatter look */
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 20px; /* Rounded corners for a modern look */
 }
 
-button {
-    width: 50%;
-    padding: 15px;
-    margin: 20px 0; /* Add more vertical margin for spacing */
-    border-radius: 30px;
-    border: none;
-    background-color: #A68B60;
-    color: white;
+#homeButton:hover {
+  background-color: #8C7A50; /* Darker shade for hover effect */
+  color: #ddd; /* Optional: Change the text color on hover */
+}
+
+#navButtons {
+    display: flex;
+    gap: 10px; /* Spacing between buttons */
+}
+
+/* Style the buttons */
+#navButtons button {
+    background: #A68B60; /* Warm beige for buttons */
+    border: none; /* Remove border for a flatter look */
+    color: #fff;
+    padding: 10px 20px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    border-radius: 20px; /* Rounded corners for a modern look */
 }
 
-button:hover {
-    background-color: #8C7A50;
+#navButtons button:hover {
+    background-color: #8C7A50; /* Darker shade for hover effect */
+    color: #ddd; /* Optional: Change the text color on hover */
 }
 
-.divider {
-    text-align: center;
+/* Main content styles */
+main {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Journal section styles */
+#journalSection {
+    background-color: #ffffff; /* White for contrast against the beige */
+    padding: 20px;
+    border: none; /* Remove border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+/* Entries grid styles */
+#entries {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Entry card styles */
+.entry {
+    background-color: #ffffff; /* White background for entries */
+    border: 1px solid #ccc; /* Light gray border for definition */
+    padding: 15px;
+    border-radius: 4px; /* Slight rounding of corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.entry:hover {
+    transform: translateY(-5px); /* Slight raise effect on hover */
+}
+
+/* Sidebar styles */
+aside {
+    background-color: #ffffff; /* White background for sidebar */
+    padding: 20px;
+    border: 1px solid #ccc; /* Light gray border */
+}
+
+/* Favorites and Recents styles */
+#favoritesContainer,
+#recentsContainer {
+    background-color: #ffffff; /* White background for containers */
+    border: 1px solid #ccc; /* Light gray border for definition */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px; /* Rounded corners for the containers */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+#favoritesContainer h2,
+#recentsContainer h2 {
+    color: #333; /* Dark gray color for the titles */
+    margin-bottom: 10px; /* Spacing below the titles */
+}
+
+#favoritesContainer .diary-entry,
+#recentsContainer .diary-entry {
+    background-color: #f5f3f0; /* Light beige for entries background */
+    color: #333; /* Dark gray for text color */
+    border: none; /* No border for a cleaner look */
+    padding: 10px 15px;
+    margin-bottom: 8px; /* Space between entries */
+    border-radius: 4px; /* Slight rounding of corners */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* Inner shadow for subtle depth */
+}
+
+#favoritesContainer .diary-entry:hover,
+#recentsContainer .diary-entry:hover {
+    background-color: #e6e2d3; /* Slightly darker beige on hover */
+}
+
+/* Footer styles */
+footer {
+    background-color: #333; /* Dark footer for contrast */
+    color: #fff;
+    padding: 10px 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Chat interface styles */
+#chatInterface {
+    background: #ffffff; /* White background for chat interface */
+    color: #333; /* Dark gray text for readability */
+    padding: 10px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border: 1px solid #ccc; /* Light gray border */
+    cursor: pointer;
+}
+
+/* Image upload section */
+.entry-image-upload {
     margin: 20px 0;
 }
 
-.google-login-button {
-    background-color: #dd4b39;
-    color: #fff;
-    padding: 15px;
-    border-radius: 30px;
-    border: none;
-    transition: background-color 0.3s;
-    cursor: pointer;
-    text-align: center;
+.entry-image-upload label {
+    display: block;
+    margin-bottom: 5px;
 }
 
-.google-login-button:hover {
-    background-color: #c53727;
+.entry-image-upload input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Slightly rounded corners for the input */
 }
 
-a {
-    color: #333;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-.signup {
-    margin-top: 20px;
-}
-
-/* Adjustments for responsiveness */
+/* Responsive design */
 @media (max-width: 768px) {
-    .login-container {
+    main {
+        grid-template-columns: 1fr;
+    }
+    .entries-grid {
+        grid-template-columns: 1fr; /* Single column layout on small screens */
+    }
+    nav {
         flex-direction: column;
-        width: 90%;
+        align-items: center;
     }
-
-    .login-image {
-        order: 2; /* Image goes below the form on small screens */
-        height: 200px; /* Set a fixed height for the image area */
+    #navButtons {
+        width: 100%;
+        justify-content: center;
     }
-
-    .login-form-container {
-        order: 1; /* Form goes above the image on small screens */
-        width: 100%; /* Form takes full width on small screens */
-        max-width: none;
-        padding: 20px;
+    #navButtons button,
+    #homeButton {
+        width: 100%; /* Full width buttons on small screens */
+        margin-bottom: 10px;
     }
 }
 
+/* Add styles for search bar */
+.search-filter {
+    margin-bottom: 20px;
+}
+
+.search-filter input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners for the search input */
+}
+
+/* Typography enhancements */
+h1, h2 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Add your existing styles from previous CSS here */
+
+.calendar-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.calendar-navigation h2 {
+    margin: 0;
+}
+
+.day-label {
+    text-align: center;
+    padding: 5px 0;
+}
+
+/* Add a little style to the navigation buttons */
+#prev-month,
+#next-month {
+    padding: 5px 10px;
+    cursor: pointer;
+}
