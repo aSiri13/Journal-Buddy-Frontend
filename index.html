@@ -22,22 +22,58 @@
 <main>
     <section id="journalSection">
         <h1>My Journal Buddy</h1>
-        
-      <!-- Image Upload Section -->
-      <div class="entry-image-upload">
-          <label for="entryImage">Upload a cover image for your diary entry:</label>
-          <input type="file" id="entryImage" name="entryImage" accept="image/*">
-      </div>
-
-      <!-- Search and Filter Section -->
-      <div class="search-filter">
-          <input type="text" id="searchEntries" placeholder="Search diary entries...">
-      </div>
-
-      <div id="entries" class="entries-grid">
-          <!-- Entries will be loaded here by JavaScript -->
-      </div>
-    </section>
+        <div id="main-divider">
+          <a href="journal.html" id="section">
+            Journals
+          </a>
+          <a href="entries.html" id="section">
+            Entries
+          </a>
+        </div>
+        <div class="entry-image-upload">
+          <label for="entryImage">
+            Upload a cover image for your diary entry:
+          </label>
+          <input
+            type="file"
+            id="entryImage"
+            name="entryImage"
+            accept="image/*"
+          />
+        </div>
+        {/* <div class="search-filter">
+          <input
+            type="text"
+            id="searchEntries"
+            placeholder="Search diary entries..."
+          />
+          <a href="create.html" id="createEntry">
+            Create
+          </a>
+        </div>
+        <div id="entries" class="entries-grid">
+          {Entries will be loaded here by JavaScript}
+        </div> */} 
+        <div className="EntryWrapper">
+          <EntryForm addEntry={addEntry} />
+          {/* display entries */}
+          {entries.map((entry) =>
+            entry.isEditing ? (
+              <EditEntryForm 
+                editEntry={editTask} 
+                task={entry} />
+            ) : (
+              <Entry
+                key={entry.id}
+                task={entry}
+                deleteEntry={deleteEntry}
+                editEntry={editEntry}
+                toggleComplete={toggleComplete}
+              />
+            )
+          )}
+        </div>
+      </section>
   <aside>
       <div id="favoritesContainer">
           <div id="favorites">
