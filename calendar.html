@@ -1,0 +1,55 @@
+<div id="calendar"></div>
+<link rel="stylesheet" type="text/css" href="calendar.css">
+
+<script>
+// Today's date information
+const today = new Date();
+const currentMonth = today.getMonth(); // Month as a number (0-11)
+const currentYear = today.getFullYear();
+
+function generateCalendar(month, year) {
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+
+    const calendarDiv = document.getElementById('calendar');
+    calendarDiv.innerHTML = ''; // Clear previous calendar
+
+    // Add Month and Year
+    calendarDiv.innerHTML += `<div class="month">
+        <ul>
+            <li class="prev">&#10094;</li>
+            <li class="next">&#10095;</li>
+            <li class="month-year">${firstDay.toLocaleString('default', { month: 'long' })}<br>
+                <span style="font-size:18px">${year}</span></li>
+        </ul>
+    </div>`;
+
+    // Weekdays header
+    const weekdays = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
+    let weekdaysHTML = '<ul class="weekdays">';
+    weekdays.forEach(day => {
+        weekdaysHTML += `<li>${day}</li>`;
+    });
+    weekdaysHTML += '</ul>';
+    calendarDiv.innerHTML += weekdaysHTML;
+
+    // Days in a month
+    let daysHTML = '<ul class="days">';
+    for (let i = 1; i <= lastDay.getDate(); i++) {
+        const day = new Date(year, month, i);
+        const isToday = i === today.getDate() && month === today.getMonth() && year === today.getFullYear();
+        daysHTML += `<li class="day ${isToday ? 'active' : ''}">${i}</li>`;
+    }
+    daysHTML += '</ul>';
+    calendarDiv.innerHTML += daysHTML;
+}
+
+//  generate the current month calendar
+generateCalendar(currentMonth, currentYear);
+
+// @anshu You can update this function to refresh the calendar based on any model changes
+function updateCalendarColors() {
+    // Implement mood-based updates here
+}
+
+</script>
