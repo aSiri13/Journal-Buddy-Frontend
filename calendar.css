@@ -1,3 +1,6 @@
+
+
+
 /* html, body {
     height: 100%;
     margin: 0;
@@ -205,5 +208,61 @@
     .prev, .next {
         font-size: 20px;
         padding: 0 10px;
+    }
+}
+
+
+.content-container {
+    display: flex;
+    justify-content: space-around; /* Center items and provide space around them */
+    align-items: flex-start; /* Align items at the start of the flex container */
+    padding: 20px;
+    gap: 20px; /* Provide some gap between items */
+    background-color: #ffffff; /* Optional: background color for the entire container */
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
+    height: 50vh; /* Use the full height of the viewport */
+    width: 50vw; /* Use the full width of the viewport */
+}
+
+#calendar, .mood-legend {
+    flex: 1; /* Allow each item to take up equal space */
+    margin: 10px; /* Provide some margin around items */
+}
+
+.mood-legend {
+    /* Add your styles for the legend here */
+    border: 1px solid #ccc; /* Optional: add border to legend */
+    padding: 10px;
+    border-radius: 10px; /* Optional: rounded corners for legend */
+    background-color: #ffffff; /* Background color for legend */
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1); /* Optional: add shadow to legend */
+    max-width: 300px; /* Optional: max-width for legend box */
+}
+
+
+.mood-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Space between items */
+}
+
+.color-box {
+    width: 20px; /* Adjust as needed */
+    height: 20px; /* Adjust as needed */
+    margin-right: 10px; /* Adjust as needed */
+    border: 1px solid #000; /* Optional border for the color box */
+}
+
+.good-day { background-color: green; }
+.mid-day { background-color: yellow; }
+.bad-day { background-color: red; }
+.not-completed {
+    background-image: url('path/to/your/cross-image.png');
+    background-size: cover;
+}
+
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column; /* Stack items vertically on smaller screens */
     }
 }
