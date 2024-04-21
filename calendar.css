@@ -1,8 +1,8 @@
-html, body {
+/* html, body {
     height: 100%;
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: #f0f0f0;
+    background: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,22 +10,22 @@ html, body {
 
 #calendar {
     width: 100%;
-    max-width: 1000px; /* Adjust this value as needed */
+    max-width: 2500px; 
     background: #fff;
     border-collapse: collapse;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+} */
 
-.month {
+/* .month {
     text-align: center;
-    padding: 20px 0;
+    padding: 200px 0;
     font-size: 24px;
-    background-color: #4CAF50;
+    background-color: #A68B60;
     color: white;
 }
 
 .weekdays {
-    background-color: #ddd;
+    background-color: #D3C1AC;
     text-align: center;
     font-weight: bold;
 }
@@ -36,7 +36,7 @@ html, body {
 
 .weekdays li, .days li {
     display: inline-block;
-    width: 20%; /* 100% / 7 days */
+    width: 20%; 
     padding: 10px 0;
     border-right: 1px solid #eee;
     border-bottom: 1px solid #eee;
@@ -88,5 +88,122 @@ html, body {
         font-size: 14px;
         padding: 12px;
         margin-top: -38px;
+    }
+}
+
+ */
+
+
+ html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#calendar {
+    width: 100%;
+    max-width: 90%; /* Adjust this value to your preference */
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-collapse: collapse;
+    margin: 20px;
+}
+
+.month ul {
+    text-align: center;
+    padding: 20px 0; /* Reduced padding */
+    font-size: 24px;
+    background-color: #A68B60;
+    color: white;
+    position: relative; /* For positioning prev and next buttons */
+    list-style: none; /* Removes the bullet points */
+    padding: 0; /* Resets any default padding */
+    margin: 0; /* Resets any default margins */
+    display: flex; /* Aligns the list items in a row */
+    justify-content: center; /* Centers the list items */
+    align-items: center; /* Aligns items vertically */
+}
+
+.weekdays {
+    background-color: #D3C1AC;
+    text-align: center;
+    font-weight: bold;
+    padding: 0; /* Remove excess padding */
+    margin: 0; /* Align with calendar grid */
+}
+
+.days {
+    text-align: center;
+    padding: 0; /* Remove excess padding */
+    margin: 0; /* Align with calendar grid */
+    list-style: none; /* Remove default list styling */
+}
+
+.weekdays li, .days li {
+    display: inline-block;
+    width: 14.28%; /* 100% / 7 days */
+    padding: 10px 0;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    box-sizing: border-box; /* Include padding and border in the width */
+}
+
+.days li {
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.days li:hover {
+    background-color: #f0f0f0;
+}
+
+.days li.active {
+    background-color: #EED8C0;
+    color: black;
+    
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    background: none; /* Optional: remove if you want background color */
+    border: none; /* Remove border */
+    padding: 0 20px; /* Adjust padding to your preference */
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.2); /* Optional: for hover effect */
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+@media (max-width: 600px) {
+    .weekdays li, .days li {
+        padding: 5px 0;
+        font-size: 14px;
+    }
+
+    .month {
+        font-size: 20px;
+    }
+
+    .prev, .next {
+        font-size: 20px;
+        padding: 0 10px;
     }
 }

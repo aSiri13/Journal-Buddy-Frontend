@@ -52,4 +52,76 @@ function updateCalendarColors() {
     // Implement mood-based updates here
 }
 
+
+
+
+
+// Keep track of the displayed month and year
+let displayedMonth = today.getMonth();
+let displayedYear = today.getFullYear();
+
+function setupNavigation() {
+    document.querySelector('.prev').addEventListener('click', () => {
+        displayedMonth--;
+        if (displayedMonth < 0) {
+            displayedMonth = 11;
+            displayedYear--;
+        }
+        generateCalendar(displayedMonth, displayedYear);
+    });
+
+    document.querySelector('.next').addEventListener('click', () => {
+        displayedMonth++;
+        if (displayedMonth > 11) {
+            displayedMonth = 0;
+            displayedYear++;
+        }
+        generateCalendar(displayedMonth, displayedYear);
+    });
+}
+
+function generateCalendar(month, year) {
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+
+    const calendarDiv = document.getElementById('calendar');
+    calendarDiv.innerHTML = ''; // Clear previous calendar
+
+    // Add Month and Year
+    calendarDiv.innerHTML += `<div class="month">
+        <ul>
+            <li class="prev">&#10094;</li>
+            <li class="next">&#10095;</li>
+            <li class="month-year">${firstDay.toLocaleString('default', { month: 'long' })}<br>
+                <span style="font-size:18px">${year}</span></li>
+        </ul>
+    </div>`;
+
+    // Weekdays header
+    const weekdays = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
+    let weekdaysHTML = '<ul class="weekdays">';
+    weekdays.forEach(day => {
+        weekdaysHTML += `<li>${day}</li>`;
+    });
+    weekdaysHTML += '</ul>';
+    calendarDiv.innerHTML += weekdaysHTML;
+
+    // Days in a month
+    let daysHTML = '<ul class="days">';
+    for (let i = 1; i <= lastDay.getDate(); i++) {
+        const day = new Date(year, month, i);
+        const isToday = i === today.getDate() && month === today.getMonth() && year === today.getFullYear();
+        daysHTML += `<li class="day ${isToday ? 'active' : ''}">${i}</li>`;
+    }
+    daysHTML += '</ul>';
+    calendarDiv.innerHTML += daysHTML;
+
+    // After generating the calendar, set up the navigation
+    setupNavigation();
+}
+
+// Generate the current month calendar
+generateCalendar(displayedMonth, displayedYear);
+
+
 </script>
